@@ -7,6 +7,20 @@ as this will break the extension, since we are using an older version of Wikibas
 * It's forked from the last commit that was compatible with Wikibase 1.35 (which is what we're using now).
 * It adds a command-line option to not recursively import all referenced entities, just the ones specified in the list
 
+Example
+-------
+Import a specific property without importing any referenced items:
+``
+cd extensions/WikibaseImport/
+php maintenance/importEntities.php --entity P31 --do-not-recurse
+``
+
+Import only properties and items specified in a file, and only those:
+``
+cd extensions/WikibaseImport/
+php maintenance/importEntities.php --file import_list.txt --do-not-recurse
+``
+(the file should contain 1 item or property per line).
 
 WikibaseImport
 ===============

@@ -41,6 +41,7 @@ class ImportEntities extends \Maintenance {
 		$this->addOption( 'range', 'Range of ids to import', false, true );
 		$this->addOption( 'stdin', 'Read entity IDs to import from standard input', false, false );
 		$this->addOption( 'all-properties', 'Import all properties', false, false );
+		$this->addOption( 'do-not-recurse', 'Do not import items recursively', false, false );
 	}
 
 	public function execute() {
@@ -75,7 +76,11 @@ class ImportEntities extends \Maintenance {
 				$ids = $entityIdListBuilder->getEntityIds( $input );
 
 				$entityImporter = $this->newEntityImporter();
-				$entityImporter->importEntities( $ids );
+				
+				// import recursively?
+				$recursively = !$this->hasOption('do-not-recurse');
+				
+				$entityImporter->importEntities( $ids, $recursively );
 			} catch ( Exception $ex ) {
 				$this->logger->error( $ex->getMessage() );
 			}
