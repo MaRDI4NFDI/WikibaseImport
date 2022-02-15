@@ -10,16 +10,19 @@ as this will break the extension, since we are using an older version of Wikibas
 Example
 -------
 Import a specific property without importing any referenced items:
+
 ``
 cd extensions/WikibaseImport/
 php maintenance/importEntities.php --entity P31 --do-not-recurse
 ``
 
 Import only properties and items specified in a file, and only those:
-``
+
+```
 cd extensions/WikibaseImport/
 php maintenance/importEntities.php --file import_list.txt --do-not-recurse
-``
+```
+
 (the file should contain 1 item or property per line).
 
 WikibaseImport
