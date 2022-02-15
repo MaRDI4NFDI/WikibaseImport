@@ -1,3 +1,11 @@
+MaRDI/WikibaseImport
+=====================
+This is a fork of the original WikibaseImport that can be found at https://github.com/Wikidata/WikibaseImport/blob/master/maintenance/importEntities.php
+
+* It's forked from the last commit that wa compatible with Wikibase 1.35 (which is what we're using now).
+* It adds a command-line option to not recursively import all referenced entities, just the ones specified in the list
+
+
 WikibaseImport
 ===============
 
