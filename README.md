@@ -11,10 +11,10 @@ Example
 -------
 Import a specific property without importing any referenced items:
 
-``
+```
 cd extensions/WikibaseImport/
 php maintenance/importEntities.php --entity P31 --do-not-recurse
-``
+```
 
 Import only properties and items specified in a file, and only those:
 
