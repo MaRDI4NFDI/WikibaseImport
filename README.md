@@ -2,7 +2,7 @@ MaRDI/WikibaseImport
 =====================
 This is a fork of the original WikibaseImport that can be found at https://github.com/Wikidata/WikibaseImport.
 
-WikibaseImport is a Mediawiki extension. In the MaRDI Portal, it is loaded as part of the [docker-wikibase](https://github.com/MaRDI4NFDI/docker-wikibase) Docker image. Although it is possible to call the importer by hand, the intended usage is to call it from a container built from the [docker-import](https://github.com/MaRDI4NFDI/docker-import) image. 
+WikibaseImport is a Mediawiki extension. In the MaRDI Portal, it is loaded as part of the [docker-wikibase](https://github.com/MaRDI4NFDI/docker-wikibase) Docker image. Although it is possible to call the importer by hand, the intended usage is to call it from a container built from the [docker-importer](https://github.com/MaRDI4NFDI/docker-importer) image. 
 
 The default branch of this fork is master_mardi. Do not attempt to merge the master branch into master_mardi, 
 as this will break the extension, since we are using an older version of Wikibase.
