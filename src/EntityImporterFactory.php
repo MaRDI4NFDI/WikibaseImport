@@ -103,11 +103,10 @@ class EntityImporterFactory {
 
 	private function getImportedEntityMappingStore() {
 		if ( $this->importedEntityMappingStore === null ) {
-			$wikibaseRepo = WikibaseRepo::getDefaultInstance();
 
 			$this->importedEntityMappingStore = new DBImportedEntityMappingStore(
 				$this->loadBalancer,
-				$wikibaseRepo->getEntityIdParser()
+				WikibaseRepo::getEntityIdParser()
 			);
 		}
 
@@ -115,9 +114,8 @@ class EntityImporterFactory {
 	}
 
 	private function newEntityDeserializer() {
-		$wikibaseRepo = WikibaseRepo::getDefaultInstance();
 
-		$deserializerFactory = $wikibaseRepo->getBaseDataModelDeserializerFactory();
+		$deserializerFactory = WikibaseRepo::getBaseDataModelDeserializerFactory();
 
 		return $deserializerFactory->newEntityDeserializer();
 	}
@@ -129,9 +127,8 @@ class EntityImporterFactory {
 	}
 
 	private function getEntityNamespaceLookup() {
-		$wikibaseRepo = WikibaseRepo::getDefaultInstance();
 
-		return $wikibaseRepo->getEntityNamespaceLookup();
+		return WikibaseRepo::getEntityNamespaceLookup();
 	}
 }
 
