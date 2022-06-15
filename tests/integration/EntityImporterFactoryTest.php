@@ -7,6 +7,7 @@ use Monolog\Handler\NullHandler;
 use Wikibase\Import\EntityImporter;
 use Wikibase\Import\EntityImporterFactory;
 use Wikibase\Repo\WikibaseRepo;
+use MediaWiki\MediaWikiServices;
 
 /**
  * @group WikibaseImport
@@ -32,7 +33,7 @@ class EntityImporterFactoryTest extends \PHPUnit_Framework_TestCase {
 	private function newEntityImporterFactory() {
 		return new EntityImporterFactory(
 			WikibaseRepo::getDefaultInstance()->getStore()->getEntityStore(),
-			wfGetLB(),
+			MediaWikiServices::getInstance()->getDBLoadBalancer(),
 			$this->newLogger(),
 			'https://www.wikidata.org/w/api.php'
 		);

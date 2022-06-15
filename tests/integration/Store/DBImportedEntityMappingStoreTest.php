@@ -6,6 +6,7 @@ use Wikibase\DataModel\Entity\BasicEntityIdParser;
 use Wikibase\DataModel\Entity\ItemId;
 use Wikibase\DataModel\Entity\PropertyId;
 use Wikibase\Import\Store\DBImportedEntityMappingStore;
+use MediaWiki\MediaWikiServices;
 
 /**
  * @group WikibaseImport
@@ -45,7 +46,7 @@ class DBImportedEntityMappingStoreTest extends \MediaWikiTestCase {
 
 	private function newDBImportedEntityMappingStore() {
 		return new DBImportedEntityMappingStore(
-			wfGetLB(),
+			MediaWikiServices::getInstance()->getDBLoadBalancer(),
 			new BasicEntityIdParser()
 		);
 	}

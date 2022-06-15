@@ -13,6 +13,7 @@ use Wikibase\Import\LoggerFactory;
 use Wikibase\Import\QueryRunner;
 use Wikibase\Import\PropertyIdLister;
 use Wikibase\Repo\WikibaseRepo;
+use MediaWiki\MediaWikiServices;
 
 $IP = getenv( 'MW_INSTALL_PATH' );
 if ( $IP === false ) {
@@ -124,7 +125,7 @@ class ImportEntities extends \Maintenance {
 	private function newEntityImporter() {
 		$entityImporterFactory = new EntityImporterFactory(
 			WikibaseRepo::getStore()->getEntityStore(),
-			wfGetLB(),
+			MediaWikiServices::getInstance()->getDBLoadBalancer(),
 			$this->logger,
 			$this->getConfig()->get( 'WBImportSourceApi' )
 		);
